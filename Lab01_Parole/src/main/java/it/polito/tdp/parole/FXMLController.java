@@ -42,33 +42,38 @@ public class FXMLController {
     @FXML
     void doCancella(ActionEvent event) {
 
-    	long Starttime = System.nanoTime();
+    	
     	String s = ""+txtResult.getSelectedText();
+    	long Starttime = System.nanoTime();
     	elenco.removeParola(s);
+    	Starttime=System.nanoTime()-Starttime;
+    	String time = ""+Starttime;
+    	txtTime.setText(time);
+    	
     	txtResult.clear();
     	txtParola.clear();
     	//txtResult.appendText(elenco.getElenco().get(elenco.getElenco().size()-1));;
     	for(Object s1 :elenco.getElenco().toArray()) {
     		txtResult.appendText(s1.toString()+"\n");
     	}
-    	Starttime=System.nanoTime()-Starttime;
-    	String time = ""+Starttime;
-    	txtTime.setText(time);
+    	
     }
 
     @FXML
     void doInsert(ActionEvent event) {
-    	long Starttime = System.nanoTime();
+    	
     	txtResult.clear();
+    	long Starttime = System.nanoTime();
     	elenco.addParola(txtParola.getText());
+    	Starttime=System.nanoTime()-Starttime;
+    	String time = ""+Starttime;
+    	txtTime.setText(time);
     	txtParola.clear();
     	//txtResult.appendText(elenco.getElenco().get(elenco.getElenco().size()-1));;
     	for(Object s :elenco.getElenco().toArray()) {
     		txtResult.appendText(s.toString()+"\n");
     	}
-    	Starttime=System.nanoTime()-Starttime;
-    	String time = ""+Starttime;
-    	txtTime.setText(time);
+    	
     }
 
     @FXML
