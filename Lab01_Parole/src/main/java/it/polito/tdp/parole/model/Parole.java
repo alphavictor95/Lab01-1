@@ -24,7 +24,15 @@ public class Parole {
 	}
 	
 	public void reset() {
-		listaParole.retainAll(listaParole);
+		listaParole.removeAll(listaParole);
+		
 	}
 
+	public void removeParola(String p) {
+		for(Object s : listaParole.toArray()) {
+    		if(s.equals(p)) {
+    			listaParole.remove(s);
+    		}
+    	}
+	}
 }
